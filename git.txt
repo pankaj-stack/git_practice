@@ -28,4 +28,55 @@ working directory--------->staging area----------->local repository------>remote
     Every new file will be created in working directory.GIT does not aware these new files, 
     such type of files are said to be in "Untracked" 
 
-git status: To know staus of files in all areas.
+git status: To know staus of files in all areas.   
+
+Created a file in working directory with some content ===> Untracked 
+Once we add this file to staging area ===> Staged state 
+        git add a.txt 
+
+We have to commit changes from staged area to local repository ==> In repository/Commited state
+        git commit -m 'commit message' 
+If the file added to staging area or commited ===> tracked by git 
+ls ---> It will list out all files in working directory. <--- linux command 
+git ls-files ---> It will list out all files which are tracked by git <--- git command
+
+Any file which is already tracked by git , but it is modified in working directory is said to 
+be in modified state. 
+    modified a.txt 
+
+http://git-scm.com/download/win 
+git-scm ===> Software Configuration Management 
+
+project1
+
+git init ---> To provide/create an empty repository to our workspace so that version control 
+              is available to our working directory. 
+
+git init 
+git add a.txt b.txt 
+git commit -m 'commit message' 
+git commit -a -m 'commit message' <---- this command is used when your file is in staging area 
+
+.git directory ---> hidden directory 
+ 
+Once we create workspace, if we want version control, we require a repository ===> git 
+
+git init --> Initialized empty Git repository in <your path> 
+ 
+
+git status:
+----------- 
+It shows the current status of all files in each area , like 
+    Untracked files
+    modified files
+    staged files  
+
+If we  want concise output we have to use -s option i.e git status -s 
+
+git add:
+------- 
+To add files from working directory to staging area/cache are/index area 
+Once we added files to staging area, then git tracks these files and ready for commit. 
+ 
+staging area :--> index area or cache area . 
+It is logical/virtual area but not physical area.
