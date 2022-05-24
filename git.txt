@@ -1,0 +1,31 @@
+git has two types of repository:
+-------------------------------- 
+    1.local repository 
+    2.remote repository 
+Usually the total project code will be available in remote repository.
+The current work of developer will be stored in local repository. 
+
+New files will be created in working directory. 
+Once work completed, we have to add these files to staging area.For this we have to use 
+git add command. 
+
+git add ===> Sending files from working directory to staging area. 
+git commit ===> Staged changes will be moved to local repository.
+git push ===> To move files from local repository to remote repository.
+git clone ===> To create a new local repository from the remote repository. <-----------------
+git pull ===> To get updated files from remote repository to local repository.
+ 
+cloning ===> creating exactly duplicate copy 
+
+working directory--------->staging area----------->local repository------>remote repository
+---------git add---------------->--------git commit------->-------git push-------->
+                                                          <----git clone/git pull--
+
+4.Modified
+
+    1.Untracked:
+    ------------ 
+    Every new file will be created in working directory.GIT does not aware these new files, 
+    such type of files are said to be in "Untracked" 
+
+git status: To know staus of files in all areas.
