@@ -79,4 +79,127 @@ To add files from working directory to staging area/cache are/index area
 Once we added files to staging area, then git tracks these files and ready for commit. 
  
 staging area :--> index area or cache area . 
-It is logical/virtual area but not physical area.
+It is logical/virtual area but not physical area. 
+
+1) To add all files in current working directory 
+	git add .  
+    git add * 
+    git add -A 
+
+2) To add particular files 
+    git add file1.txt file2.txt 
+
+3) We can use even regular expression patterns also 
+    git add *.java 
+    git add *.txt 
+    git add *.txt *.java 
+     
+git commit :
+------------ 
+    If we want to commit staged changes 
+    git commit -m 'commit message' 
+
+Unique commit id will be generated 
+commit id/hash which is haxadecimal number of 40  characters 
+For commit git records 
+author name and mail id 
+timestamp 
+commit message 
+
+create  mode 100644 file1.txt # <--- 
+    100 ==> The types of file 
+           100 means ascii text data 
+    644 ==> file permissions 
+    644 ==> file  permissions :rw-r--r-- 
+    r--> 4 
+    w--> 2 
+    x--> 1 
+
+git log:
+-------- 
+It show history of all commits. 
+>commit id  
+>author  name and mail id 
+>timestamp 
+>commit message      
+
+HEAD ------------> MASTER----------------> (POINTING TO THE LATEST COMMIT)  
+
+git log --help 
+
+git config:
+----------- 
+git config command can be used for git configuration like user name, mail id, etc 
+git config --list 
+    To listout all git configurations 
+
+git config user.name 
+    pankaj-stack 
+    
+git config user.email
+    80783685+pankaj-stack@users.noreply.github.com  
+
+git config --list # To list out all the configurations 
+
+without global vs with global:
+------------------------------ 
+For all repositories which is managed by current git ==> global 
+with global means : configurattion applicable for all repositories 
+without global means: configurations applicable only for current repository 
+
+github and gitlab are  the remote repositories <---------------------------------------- 
+ 
+How to see log information of a particular file:
+------------------------------------------------ 
+git log file1.txt  
+
+oneline per commit 
+commit id (7 characters only) + commit message 
+
+git log --oneline #<--- This option is very helpful if we have lot of commits and to identify
+                        commit based on message. 
+
+Option-2: -n option to limit the number of commits to display 
+git log -n 2 --oneline 
+git log -2 
+git log --max-count=3 
+ 
+Option-3: --grep option to search basedf on given pattern in the commit message. 
+did some changes for sr-231 
+did some changes for defect no. 123 
+did some changes for commit message 
+
+git log --grep=pattern 
+git log --grep=sr-231  
+
+Option-4: Show commits more recent than a specific data or time 
+git log --since='2022-05-25' 
+git log --after='2022-05-25' 
+git log --after='10 days ago' 
+git log --after='3 hours ago'  
+
+Option-5: Show commits older than a specific time 
+git log --util='17-05-2022' 
+git log --before='17-05-2022' 
+git log --before='5 minutes ago' 
+git log --before='1 day ago'  
+ 
+Option-6: Show commits on the basis of author 
+--author =<pattern> <---------------- 
+git log --author='Durga'
+  
+Option-7: --decorate option to display extra information 
+-------------------------------------------------------- 
+    branch name,HEAD,tags inoformation etc 
+
+git log --decorate 
+
+
+=========================================git diff===================================================
+In the content of a file 
+    1.working directory vs staging area 
+    2.working directory vs last commit 
+    3.staging area vs last commit 
+    4.working directory vs specified commit 
+    5.staging area vs specified commit 
+    etc... 
