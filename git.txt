@@ -204,3 +204,93 @@ In the content of a file
     4.working directory vs specified commit 
     5.staging area vs specified commit 
     etc... 
+
+1.working directory vs staging area:
+------------------------------------ 
+git diff file1.txt  
+
+diff --git a/file1.txt b/file1.txt
+index 53ee99c..ef66dad 100644
+--- a/file1.txt
++++ b/file1.txt
+@@ -3,4 +3,5 @@ Second line in file1.txt
+ Third line in file1.txt
+ Fourth line in file1.txt
+ Fifth line in file1.txt
+-Sixth line in file1.txt
+\ No newline at end of file
++Sixth line in file1.txt
++Seventh line in file1.txt 
+
+1) diff --git a/file1.txt b/file1.txt
+    a/file1.txt --> source copy which means staging area 
+    b/file1.txt --> destination copy which means working directory 
+
+2) index 53ee99c..ef66dad 100644 
+    53ee99c--> hash source file contents(staging area) 
+    ef66dad--> represents file permissions 
+        644-->rw-r--r-- 
+        4--> r 
+        2-->w 
+        1-->x 
+
+3) --- a/file1.txt: Source copy missing some lines(staging area) 
+4) +++ b/file1.txt 
+    +++ means new lines added in destination copy(working directory) 
+
+5) @@ -3,4 +3,5 @@ 
+    -3,4 : means source version 
+           from 3rd line onwards total 4 lines 
+                Third line in file1.txt
+                Fourth line in file1.txt
+                Fifth line in file1.txt
+                -Sixth line in file1.txt 
+    
+    +3,5 : 
+    + means destination version 
+    from 3rd line onwards total 5 lines 
+            Third line in file1.txt
+            Fourth line in file1.txt
+            Fifth line in file1.txt
+            Sixth line in file1.txt
+            +Seventh line in file1.txt  
+If any line prefixed with space means it is unchanged. 
+If any line prefixed with + means it is added in destination copy 
+If any line prefixed with - means it is removed in destination copy. 
+
+2.working directory vs last commit:
+-----------------------------------  
+HEAD --------> MASTER-------------> latest commit ,
+         indirectly HEAD is pointing to the lated commit(last commit )
+         git diff HEAD file1.txt <---- compare last commit and working directory
+         git diff --staged file1.txt  
+
+3.staging area vs specific commit:
+---------------------------------- 
+        git diff --staged commit_id file1.txt  
+
+4.Between two specified commits:
+-------------------------------- 
+        git diff commit_id_1 commit_id_2 file1.txt 
+
+        git diff 5ac0761 a9bed75 file1.txt 
+
+5) last commit vs last but one commit(second last):
+---------------------------------------------------  
+        commit-7
+        commit-6
+        commit-5
+        commit-4
+        commit-3
+        commit-2
+        commit-1
+        git diff HEAD HEAD-1 file1.txt  
+        git diff HEAD HEAD^1 file1.txt # But this carrot symbol is only for 1 not for any other number like 2,3,4 and so on... 
+                                        otherwise it will through an error  
+        git diff HEAD HEAD^1 file1.txt
+
+6) compare all files:
+--------------------- 
+git diff commit_id_1 and commit_id_2 
+
+git diff e7bc049 a9bed75

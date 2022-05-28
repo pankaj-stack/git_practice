@@ -3,4 +3,6 @@ Second line in file1.txt
 Third line in file1.txt
 Fourth line in file1.txt
 Fifth line in file1.txt  
-Sixth line in file1.txt 
+Sixth line in file1.txt  
+Seventh line in file1.txt  
+Eighth line in file1.txt 
