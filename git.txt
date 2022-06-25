@@ -293,4 +293,66 @@ HEAD --------> MASTER-------------> latest commit ,
 --------------------- 
 git diff commit_id_1 and commit_id_2 
 
-git diff e7bc049 a9bed75
+git diff e7bc049 a9bed75  
+
+                            from 11:23 --------------- 12:23
+--------------------------------------------------------------------------------------------- 
+7) local repo vs remote repo:
+----------------------------- 
+git diff local_branch_name remote_branch_name 
+git diff master remote_branch_name 
+
+Visual tool for checking differences:
+------------------------------------- 
+Helix Visual Merge Tool(p4merge) 
+Meld 
+etc ... 
+
+p4merge ===> Merge tool as well as Diff tool 
+
+SVN, CVS, ClearCase, Perforce 
+
+Perforce 4 merge ===> p4merge  
+
+-----------------------------To remove files from different areas-----------------------------
+git rm command: 
+--------------
+1.To remove files from both staging area and working directory (git rm file_name)
+2.To remove files from only staging area but not from working directory 
+3.To remove files only from working directory
+ 
+1.To remove files from both staging area and working directory
+    > git rm file_name
+Note: 
+    >git rm
+    >fatal: No pathspec was given. Which files should I remove? 
+
+    >git rm .
+    >fatal: not removing '.' recursively without -r
+
+    >git rm -r . # to delete all the files of the working directory and staging area
+
+2.To remove files from only staging area but not from working directory 
+    >git rm --cached file_name 
+
+3.To remove files only from working directory
+    > we simply use only normal linux command 
+    > rm file_name  
+
+-----------------------------------------git checkout command-----------------------------------------
+We can use checkout command to discard unstaged changes in the tracked files working directory 
+unstaged changes : The changes which are not added to the staging area 
+tracked files : The files which are tracked by git 
+
+1. git checkout
+    > It will list out the files for which checkout is applicable  
+2. git checkout file1.txt  
+    > To discard unchanged changes in file1.txt
+3. git checkout . 
+    > To discard unchanged changes in every tracked files of working directory.
+
+git checkout filename(that file name should be staging area wheter it is deleted from the staging area it does not matter)
+
+After checkout 
+    >working directory copy and staging area copy have same content  
+
