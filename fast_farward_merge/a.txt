@@ -1,2 +1,3 @@
-1st line in a.txt ,1st line is modified on the develop
-2nd line in a.txt 
+1st line in a.txt ,first line is modified by me
+2nd line in a.txt  
+3rd line is added by me in local repo
