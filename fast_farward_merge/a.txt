@@ -1,3 +1,5 @@
 1st line in a.txt ,first line is modified by me
 2nd line in a.txt  
 3rd line is added by me in local repo
+
+this is the 4th line added by master branch
